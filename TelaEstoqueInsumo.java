@@ -13,14 +13,14 @@ public class TelaEstoqueInsumo {
 		editarInsumo();
 		consultarInsumo();
 		excluirInsumo();
-		
+
 	}
-	
+
 	static void opcoes() {
 
 		int opcao;
 		System.out.println("ESTOQUE\n");
-		
+
 		do {
 			System.out.println("Opções para estoque. Opção desejada: ");
 			System.out.println("====================================\n");
@@ -30,7 +30,7 @@ public class TelaEstoqueInsumo {
 			System.out.println("3 - Consultar Insumo");
 			System.out.println("4 - Excluir Insumo");
 
-			opcao = sc.nextInt();
+			opcao = Integer.parseInt(sc.nextLine());
 			System.out.println("Voce escolheu a opção: " + opcao);
 			switch (opcao) {
 			case 0:
@@ -56,6 +56,9 @@ public class TelaEstoqueInsumo {
 	}
 
 	public static void cadastrarInsumo() {
+
+
+
 		System.out.println("Cadastrar insumo. Entre com os dados: ");
 		System.out.println("=====================================\n");
 		System.out.println("Código do Sistema: ");
@@ -75,26 +78,27 @@ public class TelaEstoqueInsumo {
 		System.out.println("8- massas");
 		System.out.println("9- verduras");
 		System.out.println("10- outros");
-		insumo.categoria = sc.nextByte();
+		insumo.categoria = Byte.parseByte(sc.nextLine());
 
 		System.out.println("Preço de Custo: ");
-		insumo.pCusto = sc.nextDouble();
+		insumo.pCusto = Double.parseDouble(sc.nextLine());
 
 		System.out.println("Medida: ");
 		System.out.println("1- UN");
 		System.out.println("2- KG");
 		System.out.println("3- LT");
-		insumo.medida = sc.nextByte();
-                         
+		insumo.medida = Byte.parseByte(sc.nextLine());
+
 		System.out.println("Estoque Mínimo: ");
-		insumo.estoqueM = sc.nextDouble();
+		insumo.estoqueM = Double.parseDouble(sc.nextLine());
 
 		System.out.println("Estoque Atual: ");
-		insumo.estoqueA = sc.nextDouble();
+		insumo.estoqueA = Double.parseDouble(sc.nextLine());
 
 		System.out.println("Situação do Estoque: ");
 		if (insumo.estoqueA >= insumo.estoqueM) {
 			System.out.println("Regular");
+			
 		}else if (insumo.estoqueA <= insumo.estoqueM) {
 			System.out.println("Abaixo do Mínimo");
 		}else if (insumo.estoqueA < 0) {
@@ -112,9 +116,13 @@ public class TelaEstoqueInsumo {
 		System.out.println("Estoque Atual       : " + insumo.estoqueA);
 		System.out.println("Situação do Estoque : " + insumo.sitEstoque);
 		System.out.println("================================================");
+
+		GerenciadorIngredientes.listIns.add(insumo);
 	}
 
 	public static void editarInsumo() {
+		
+	
 		System.out.println("Digite o número para alterar no cadastro do insumo: ");
 		System.out.println("===================================================");
 		System.out.println("1 - Código do Sistema");
@@ -124,16 +132,19 @@ public class TelaEstoqueInsumo {
 		System.out.println("5 - Medida");
 		System.out.println("6 - Estoque Mínimo");
 		System.out.println("7 - Estoque Atual");
-		System.out.println("8 - Situação do Estoque");
 
-		int opcao = sc.nextInt();
-		if (opcao == 1) {
+		int opcao = Integer.parseInt(sc.nextLine());
+		
+		switch(opcao) {
+		case 1 :
 			System.out.println("Código do Sistema: ");
-			insumo.codSistema = sc.nextInt();
-		} else if (opcao == 2) {
+			insumo.codSistema = Integer.parseInt(sc.nextLine());
+			break;
+		case 2: 
 			System.out.println("Nome: ");
 			insumo.nome = sc.nextLine();
-		} else if (opcao == 3) {
+			break;
+		case 3: 
 			System.out.println("Categoria: ");
 			System.out.println("1- bebidas");
 			System.out.println("2- carnes");
@@ -145,54 +156,50 @@ public class TelaEstoqueInsumo {
 			System.out.println("8- massas");
 			System.out.println("9- verduras");
 			System.out.println("10- outros");
-			insumo.categoria = sc.nextByte();
-		} else if (opcao == 4) {
+			insumo.categoria = Byte.parseByte(sc.nextLine());
+			break;
+		case 4: 
 			System.out.println("Preço de Custo: ");
-			insumo.pCusto = sc.nextDouble();
-		} else if (opcao == 5) {
+			insumo.pCusto = Double.parseDouble(sc.nextLine());
+			break;
+		case 5:
 			System.out.println("Medida: ");
 			System.out.println("1- UN");
 			System.out.println("2- KG");
 			System.out.println("3- LT");
-			insumo.medida = sc.nextByte();
-		} else if (opcao == 6) {
+			insumo.medida = Byte.parseByte(sc.nextLine());
+			break;
+		case 6: 
 			System.out.println("Estoque Mínimo: ");
-			insumo.estoqueM = sc.nextDouble();
-		} else if (opcao == 7) {
+			insumo.estoqueM = Double.parseDouble(sc.nextLine());
+			break;
+		case 7: 
 			System.out.println("Estoque Atual: ");
-			insumo.estoqueA = sc.nextDouble();
-		} else if (opcao == 8) {
-			System.out.println("Situação do Estoque: ");
-			System.out.println("1- Regular");
-			System.out.println("2- Abaixo do Mínimo");
-			System.out.println("3- Negativo / Insuficiente");
-			insumo.sitEstoque = sc.nextInt();
-		}
+			insumo.estoqueA = Double.parseDouble(sc.nextLine());
+			break;
+			
+		default: 
+			System.out.println("Opção invalida");
+			break;
+		} 
 	}
 
 
 	public static void consultarInsumo() {
-		System.out.println("\nInsumo cadastrado " + insumo.nome);
-		System.out.println("==============================================");
-		System.out.println("Código do Sistema   : " + insumo.codSistema);
-		System.out.println("Categoria           : " + insumo.categoria);
-		System.out.println("Preço de Custo      : " + insumo.pCusto);
-		System.out.println("Medida              : " + insumo.medida);
-		System.out.println("Estoque Mínimo      : " + insumo.estoqueM);
-		System.out.println("Estoque Atual       : " + insumo.estoqueA);
-		System.out.println("Situação do Estoque : " + insumo.sitEstoque);
-		System.out.println("==============================================");
+		GerenciadorIngredientes.consultarEstoque();
 	}
 
 	public static void excluirInsumo() {
-		insumo.codSistema = 0;
-		insumo.nome = "";
-		insumo.categoria = 0;
-		insumo.pCusto = 0;
-		insumo.medida = 0;
-		insumo.estoqueM = 0;
-		insumo.estoqueA = 0;
-		insumo.sitEstoque = 0;
+		
+		System.out.println("Deseja excluir \n 1. Todos da lista \n 2. Somente um dos itens");
+		int opcao = Integer.parseInt(sc.nextLine());
+		switch(opcao) {
+		case 1: 
+			GerenciadorIngredientes.listIns.removeAll(GerenciadorIngredientes.listIns);
+		case 2: 
+			
+		}
+		
 	}
 }
 
