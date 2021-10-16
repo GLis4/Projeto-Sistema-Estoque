@@ -16,7 +16,7 @@ public class Insumo {
 	} 
 	
 	public void removerEstoque(double remEstoque) {
-		estoqueM -= remEstoque;
+		estoqueA -= remEstoque;
 	}
 
 	
