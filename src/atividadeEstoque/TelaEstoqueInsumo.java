@@ -1,4 +1,4 @@
-package projetos.atividadeEstoque;
+package atividadeEstoque;
 
 import java.util.Scanner;
 

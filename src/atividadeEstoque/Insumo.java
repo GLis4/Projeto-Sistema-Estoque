@@ -1,4 +1,4 @@
-package projetos.atividadeEstoque;
+package atividadeEstoque;
 
 public class Insumo {
 	
