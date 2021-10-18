@@ -5,9 +5,9 @@ import java.util.Scanner;
 public class TelaEstoqueInsumo {
 
 	public static void main(String[] args) {
-
-		opcoesCadastro();
 		
+		opcoesCadastro();
+	
 	}
 
 	private static Scanner sc = new Scanner(System.in);
@@ -29,9 +29,9 @@ public class TelaEstoqueInsumo {
 			System.out.println("4 - Excluir Insumo");
 
 			opcao = Integer.parseInt(sc.nextLine());
-			System.out.println("Voce escolheu a opção: " + opcao);
 			switch (opcao) {
 			case 0:
+			System.out.println("Voce escolheu a opção: " + opcao);
 				System.out.println("Voltou ao menu ");
 				break;
 			case 1:
@@ -57,7 +57,7 @@ public class TelaEstoqueInsumo {
 
 		System.out.println("Cadastrar novo insumo. Entre com os dados: ");
 		System.out.println("=====================================\n");
-		System.out.println("Código do Sistema: ");
+		System.out.println("Código do insumo: ");
 		insumo.codSistema = Integer.parseInt(sc.nextLine());
 
 		System.out.println("Nome: ");
@@ -202,8 +202,16 @@ public class TelaEstoqueInsumo {
 			GerenciadorIngredientes.consultarEstoque();
 			System.out.println("Deseja remover o item : ");
 			int indexRem = Integer.parseInt(sc.nextLine());
-			GerenciadorIngredientes.listIns.remove(indexRem);
-
+			try {
+				if(indexRem < 0 || indexRem > GerenciadorIngredientes.listIns.size() -1) {
+					System.out.println("Nao eh possivel excluir o item " + indexRem);
+				}else {
+					GerenciadorIngredientes.listIns.remove(indexRem);				
+				}
+			}catch (Exception e) {
+				System.out.println("Erro ao excluir item");
+				e.printStackTrace();
+			}
 
 		}
 

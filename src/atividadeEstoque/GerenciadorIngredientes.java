@@ -6,11 +6,10 @@ import java.util.List;
 public class GerenciadorIngredientes {
 
 	static List<Insumo> listIns = new ArrayList<>();
+	
 
 	static void comprarEstoque(Insumo ins){
-
 		listIns.add(ins);
-
 	}
 	
 	static String PesquisarIngredientes(String pesquisa) {
