@@ -2,14 +2,14 @@ package atividadeEstoque;
 
 public class Insumo {
 	
-	public	int codSistema;
-	public String nome;
-	public byte categoria;
-	public double pCusto;
-	public byte medida;
-	public double estoqueM;
-	public double estoqueA;
-	public int sitEstoque;
+	int codSistema;
+	 String nome;
+	 byte categoria;
+	 double pCusto;
+	 byte medida;
+	 double estoqueM;
+	 double estoqueA;
+	 int sitEstoque;
 
 	public void adicionarEstoque(double addEstoque) {
 		estoqueA += addEstoque;

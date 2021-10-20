@@ -17,10 +17,9 @@ public class TelaEstoqueInsumo {
 
 
 		int opcao;
-		System.out.println("ESTOQUE\n");
 
 		do {
-			System.out.println("Opções para estoque. Opção desejada: ");
+			System.out.println("Menu Insumo: ");
 			System.out.println("====================================\n");
 			System.out.println("0 - Voltar");
 			System.out.println("1 - Cadastrar Insumo");

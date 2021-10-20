@@ -1,12 +1,9 @@
 package atividadeEstoque;
 
-public class produto {
+public class Produto {
 	
 	String nomePro;
 	int idPro;
 	double preçoPro;
 	
-	
-	
-
 }

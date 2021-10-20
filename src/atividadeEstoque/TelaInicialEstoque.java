@@ -13,10 +13,10 @@ public class TelaInicialEstoque {
 		int opcao;
 		do {	
 			System.out.println("0 - Sair");
-			System.out.println("1 - Cadastrar Insumo. ");
+			System.out.println("1 - Gerenciar Lista de Insumos. ");
 			System.out.println("2 - Pesquisar no Estoque. ");
 			System.out.println("3 - Baixa Estoque. ");
-			System.out.println("4 - Cadastrar Prato.");
+			System.out.println("4 - Gerenciar Lista de Produtos.");
 
 			opcao =  Integer.parseInt(sc.nextLine());
 

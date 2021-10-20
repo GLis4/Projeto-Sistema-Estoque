@@ -18,13 +18,13 @@ public class TelaProduto {
 	public static void selecionarOpcao() {
 		int opcao;
 		do {
-			 System.out.println("================== Tela Produtos ==================");
-			  System.out.println("Por favor selecione uma das opções ");
-			  System.out.println("0- Voltar ao menu Inicial");
-			  System.out.println("1- Cadastrar produto");
-			  System.out.println("2- Pesquisar produto");
-			  System.out.println("3- Alterar Produto");
-			  System.out.println("4- Deletar Produto");
+			 System.out.println("Menu Produtos");
+			 System.out.println("====================================\n");
+				System.out.println("0 - Voltar");
+				System.out.println("1 - Cadastrar Produto");
+				System.out.println("2 - Editar Produto");
+				System.out.println("3 - Pesquisar Produto");
+				System.out.println("4 - Excluir Produto");
 			  opcao = sc.nextInt();
 			  System.out.println("Voce escolheu a opção: " + opcao);
 			switch (opcao) {
@@ -56,8 +56,6 @@ public class TelaProduto {
 		System.out.println("Informe o nome do produto");
 		System.out.println("Nome: ");
 		pd.nomePro = sc.next();
-		System.out.println("ID: ");
-		pd.idPro = sc.nextInt();
 		System.out.println("Preço: ");
 		pd.preçoPro = sc.nextDouble();
 		System.out.println("Adicione uma lista de ingredientes");
@@ -66,7 +64,7 @@ public class TelaProduto {
 		pd.ingPrato.add(GerenciadorIngredientes.listIns.get(indexProd));
 		
 		
-		System.out.println("Cadastro Completo!!!");
+		System.out.println("");
 		
 	}
 
