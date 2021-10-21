@@ -1,8 +1,10 @@
-package atividadeEstoque;
+package atividade.estoque.tela;
 
 import java.util.Scanner;
 
-public class TelaInicialEstoque {
+import atividade.estoque.GerenciadorIngredientes;
+
+public class TelaInicial {
 	
 	static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
@@ -44,7 +46,7 @@ public class TelaInicialEstoque {
 
 		System.out.println(" *Somente pesquisar por nome do produto* ");
 		System.out.println(" Pesquisar por :  ");
-		String resultPesquisa = GerenciadorIngredientes.PesquisarIngredientes(sc.nextLine());
+		String resultPesquisa = GerenciadorIngredientes.pesquisarIngredientes(sc.nextLine());
 		if(resultPesquisa.isBlank()) {
 			System.out.println("Não há nenhum item com esse nome");
 		}else {

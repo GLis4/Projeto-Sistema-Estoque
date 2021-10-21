@@ -1,4 +1,4 @@
-package atividadeEstoque;
+package atividade.estoque;
 
 public class Ingrediente {
 	

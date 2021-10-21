@@ -1,17 +1,15 @@
-package atividadeEstoque;
+package atividade.estoque.tela;
 
 import java.util.Scanner;
+
+import atividade.estoque.GerenciadorIngredientes;
+import atividade.estoque.Prato;
 public class TelaProduto {
 	
 	public static Scanner sc = new Scanner(System.in);
 	public static Prato pd = new Prato();
 	
 	public static void main(String[] args) {
-		Insumo ins = new Insumo();
-		ins.nome = "fçklsjf";
-		ins.medida = 1;
-		ins.codSistema = 32098;
-		GerenciadorIngredientes.listIns.add(ins);
 		selecionarOpcao();
 	}
 	
@@ -59,7 +57,7 @@ public class TelaProduto {
 		System.out.println("Preço: ");
 		pd.preçoPro = sc.nextDouble();
 		System.out.println("Adicione uma lista de ingredientes");
-		GerenciadorIngredientes.consultarEstoque();
+		TelaEstoqueInsumo.consultarInsumo();
 		int indexProd = sc.nextInt();
 		pd.ingPrato.add(GerenciadorIngredientes.listIns.get(indexProd));
 		

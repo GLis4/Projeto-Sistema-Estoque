@@ -1,20 +1,22 @@
-package atividadeEstoque;
+package atividade.estoque.tela;
 
 import java.util.Scanner;
+
+import atividade.estoque.GerenciadorIngredientes;
+import atividade.estoque.Insumo;
+import atividade.estoque.util.Util;
 
 public class TelaEstoqueInsumo {
 
 	public static void main(String[] args) {
-		
+
 		opcoesCadastro();
-	
+
 	}
 
 	private static Scanner sc = new Scanner(System.in);
-	static Insumo insumo = new Insumo();
 
 	static void opcoesCadastro() {
-
 
 		int opcao;
 
@@ -22,7 +24,7 @@ public class TelaEstoqueInsumo {
 			System.out.println("Menu Insumo: ");
 			System.out.println("====================================\n");
 			System.out.println("0 - Voltar");
-			System.out.println("1 - Cadastrar Insumo");
+			System.out.println("1 - Cadastrar novo Insumo");
 			System.out.println("2 - Editar Insumo");
 			System.out.println("3 - Consultar Insumo");
 			System.out.println("4 - Excluir Insumo");
@@ -30,7 +32,7 @@ public class TelaEstoqueInsumo {
 			opcao = Integer.parseInt(sc.nextLine());
 			switch (opcao) {
 			case 0:
-			System.out.println("Voce escolheu a opção: " + opcao);
+				System.out.println("Voce escolheu a opção: " + opcao);
 				System.out.println("Voltou ao menu ");
 				break;
 			case 1:
@@ -53,6 +55,7 @@ public class TelaEstoqueInsumo {
 	}
 
 	public static void cadastrarInsumo() {
+		Insumo insumo = new Insumo();
 
 		System.out.println("Cadastrar novo insumo. Entre com os dados: ");
 		System.out.println("=====================================\n");
@@ -74,6 +77,11 @@ public class TelaEstoqueInsumo {
 		System.out.println("9- verduras");
 		System.out.println("10- outros");
 		insumo.categoria = Byte.parseByte(sc.nextLine());
+		while(Util.estaDentroDosLimites(insumo.categoria, 1, 10) == false) {
+			System.out.println("Valor digitado está fora dos limites. Por favor informar numero valido.");
+			insumo.categoria = Byte.parseByte(sc.nextLine());
+
+		}
 
 		System.out.println("Preço de Custo: ");
 		insumo.pCusto = Double.parseDouble(sc.nextLine());
@@ -118,7 +126,7 @@ public class TelaEstoqueInsumo {
 	public static void editarInsumo() {
 
 
-		GerenciadorIngredientes.consultarEstoque();
+		consultarInsumo();
 		System.out.println("Deseja alterar o item : ");
 		int indexRem = Integer.parseInt(sc.nextLine());
 
@@ -186,7 +194,21 @@ public class TelaEstoqueInsumo {
 
 
 	public static void consultarInsumo() {
-		GerenciadorIngredientes.consultarEstoque();
+		for(int i = 0; i < GerenciadorIngredientes.listIns.size(); i++) {
+
+			System.out.println("\nInsumo cadastrado # "+ i); 
+			System.out.println("==============================================");
+			System.out.println("Nome                : " + GerenciadorIngredientes.listIns.get(i).nome);
+			System.out.println("Código do Sistema   : " + GerenciadorIngredientes.listIns.get(i).codSistema);
+			System.out.println("Categoria           : " + GerenciadorIngredientes.listIns.get(i).categoria);
+			System.out.println("Preço de Custo      : " + GerenciadorIngredientes.listIns.get(i).pCusto);
+			System.out.println("Medida              : " + GerenciadorIngredientes.listIns.get(i).medida);
+			System.out.println("Estoque Mínimo      : " + GerenciadorIngredientes.listIns.get(i).estoqueM);
+			System.out.println("Estoque Atual       : " + GerenciadorIngredientes.listIns.get(i).estoqueA);
+			System.out.println("Situação do Estoque : " + GerenciadorIngredientes.listIns.get(i).sitEstoque);
+			System.out.println("==============================================");
+		}
+
 	}
 
 	public static void excluirInsumo() {
@@ -198,7 +220,7 @@ public class TelaEstoqueInsumo {
 			GerenciadorIngredientes.listIns.removeAll(GerenciadorIngredientes.listIns);
 		case 2: 
 
-			GerenciadorIngredientes.consultarEstoque();
+			consultarInsumo();
 			System.out.println("Deseja remover o item : ");
 			int indexRem = Integer.parseInt(sc.nextLine());
 			try {
