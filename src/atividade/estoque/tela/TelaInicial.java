@@ -30,7 +30,7 @@ public class TelaInicial {
 				pesquisarEstoque();
 				break;
 			case 3 : 
-				System.out.println("Baixando Estoque.");
+				System.out.println("Baixando Estoque...");
 				break;
 			case 4 : 
 				TelaProduto.selecionarOpcao();

@@ -7,13 +7,7 @@ import atividade.estoque.Insumo;
 import atividade.estoque.util.Util;
 
 public class TelaEstoqueInsumo {
-
-	public static void main(String[] args) {
-
-		opcoesCadastro();
-
-	}
-
+	
 	private static Scanner sc = new Scanner(System.in);
 
 	static void opcoesCadastro() {

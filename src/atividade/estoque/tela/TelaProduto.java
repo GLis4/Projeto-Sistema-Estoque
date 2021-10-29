@@ -3,11 +3,11 @@ package atividade.estoque.tela;
 import java.util.Scanner;
 
 import atividade.estoque.GerenciadorIngredientes;
-import atividade.estoque.Prato;
+import atividade.estoque.Produto;
+
 public class TelaProduto {
 	
 	public static Scanner sc = new Scanner(System.in);
-	public static Prato pd = new Prato();
 	
 	public static void main(String[] args) {
 		selecionarOpcao();
@@ -50,7 +50,8 @@ public class TelaProduto {
 	}
 	
 	public static void cadastrarProduto() {
-		
+		Produto pd = new Produto();
+
 		System.out.println("Informe o nome do produto");
 		System.out.println("Nome: ");
 		pd.nomePro = sc.next();
@@ -60,7 +61,6 @@ public class TelaProduto {
 		TelaEstoqueInsumo.consultarInsumo();
 		int indexProd = sc.nextInt();
 		pd.ingPrato.add(GerenciadorIngredientes.listIns.get(indexProd));
-		
 		
 		System.out.println("");
 		
