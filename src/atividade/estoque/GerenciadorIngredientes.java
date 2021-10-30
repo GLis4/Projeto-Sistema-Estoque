@@ -20,7 +20,7 @@ public class GerenciadorIngredientes {
 			
 			if (listIns.get(i).nome.contains(pesquisa) ) {
 				item = "\nInsumo cadastrado " + listIns.get(i).nome + "\n" + 
-						"==============================================" +
+						"==============================================\n" +
 						"Código do Sistema   : " + listIns.get(i).codSistema + "\n" +
 						"Categoria           : " + listIns.get(i).categoria + "\n" +
 						"Preço de Custo      : " + listIns.get(i).pCusto + "\n" +

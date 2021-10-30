@@ -9,10 +9,6 @@ public class TelaProduto {
 	
 	public static Scanner sc = new Scanner(System.in);
 	
-	public static void main(String[] args) {
-		selecionarOpcao();
-	}
-	
 	public static void selecionarOpcao() {
 		int opcao;
 		do {
@@ -23,7 +19,7 @@ public class TelaProduto {
 				System.out.println("2 - Editar Produto");
 				System.out.println("3 - Pesquisar Produto");
 				System.out.println("4 - Excluir Produto");
-			  opcao = sc.nextInt();
+			  opcao = Integer.parseInt(sc.nextLine());
 			  System.out.println("Voce escolheu a opção: " + opcao);
 			switch (opcao) {
 			case 0:
@@ -54,15 +50,14 @@ public class TelaProduto {
 
 		System.out.println("Informe o nome do produto");
 		System.out.println("Nome: ");
-		pd.nomePro = sc.next();
+		pd.nomePro = sc.nextLine();
 		System.out.println("Preço: ");
-		pd.preçoPro = sc.nextDouble();
+		pd.preçoPro = Double.parseDouble(sc.nextLine());
 		System.out.println("Adicione uma lista de ingredientes");
 		TelaEstoqueInsumo.consultarInsumo();
-		int indexProd = sc.nextInt();
+		int indexProd = Integer.parseInt(sc.nextLine());
 		pd.ingPrato.add(GerenciadorIngredientes.listIns.get(indexProd));
 		
-		System.out.println("");
 		
 	}
 
