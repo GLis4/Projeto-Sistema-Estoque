@@ -1,8 +1,11 @@
 package atividade.estoque.tela;
 
+import java.util.List;
 import java.util.Scanner;
 
 import atividade.estoque.GerenciadorIngredientes;
+import atividade.estoque.Insumo;
+import atividade.estoque.util.UtilFormatacao;
 
 public class TelaInicial {
 	
@@ -46,11 +49,12 @@ public class TelaInicial {
 
 		System.out.println(" *Somente pesquisar por nome do produto* ");
 		System.out.println(" Pesquisar por :  ");
-		String resultPesquisa = GerenciadorIngredientes.pesquisarIngredientes(sc.nextLine());
-		if(resultPesquisa.isBlank()) {
+		List<Insumo> listaFiltradaInsumos = GerenciadorIngredientes.pesquisarIngredientes(sc.nextLine());
+		if(listaFiltradaInsumos.size() == 0) {
 			System.out.println("Não há nenhum item com esse nome");
 		}else {
-			System.out.println(resultPesquisa);
+			String insumosFormatadosParaApresentacao = UtilFormatacao.montarApresentacaoTextualInsumo(listaFiltradaInsumos);
+			System.out.println(insumosFormatadosParaApresentacao);
 		}
 
 

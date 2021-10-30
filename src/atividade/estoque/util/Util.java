@@ -12,17 +12,19 @@ public class Util {
 
 	}
 
-	public static String devolverSit(int sitEstoque) {
+	public static String getSituacao(int situacaoEstoque) {
 
-		switch(sitEstoque) {
+		switch(situacaoEstoque) {
 		case 1 : 
 			return "Negativo/ Insuficiente";
 		case 2 : 
 			return "Abaixo do Mínimo";
 		case 3 :
 			return "Regular";
+		default:
+			//TODO como lançar uma exception???
+			return "Situação não cadastrada";
 		}
-		return "";
 
 		
 	}
