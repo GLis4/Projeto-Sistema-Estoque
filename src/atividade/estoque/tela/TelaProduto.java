@@ -7,6 +7,7 @@ import atividade.estoque.GerenciadorProduto;
 import atividade.estoque.Insumo;
 import atividade.estoque.Produto;
 import atividade.estoque.util.Util;
+import atividade.estoque.util.UtilFormatacao;
 
 public class TelaProduto {
 	public static Scanner sc = new Scanner(System.in);
@@ -70,7 +71,6 @@ public class TelaProduto {
 	}
 	
 	static void cadastrarProduto() {
-		GerenciadorProduto gp = new GerenciadorProduto();
 		Produto prod = new Produto();
 		
 		try {
@@ -85,14 +85,21 @@ public class TelaProduto {
 			
 			System.out.println("Preço de Custo: ");
 			prod.precoPro = Double.parseDouble(sc.nextLine());
+			System.out.println("Adicione uma lista de ingredientes");
+			TelaEstoqueInsumo.consultarInsumo();
+			int indexProd = Integer.parseInt(sc.nextLine());
+			prod.ingPratos.add(GerenciadorEstoque.listIns.get(indexProd));
+
+			System.out.println("");
 						
-			System.out.println("\nINSUMO CADASTRADO COM SUCESSO!");
+			System.out.println("\nProduto CADASTRADO COM SUCESSO!");
 			System.out.println("================================================");
 			System.out.println("ID                  : " + prod.idPro);
 			System.out.println("Nome                : " + prod.nomePro);
 			System.out.println("Preço de Custo      : " + prod.precoPro); 
+			System.out.println(UtilFormatacao.montarApresentacaoTextualLInsumo(prod.ingPratos));
 			System.out.println("================================================");
-            gp.listProd.add(prod);
+            GerenciadorProduto.listProd.add(prod);
 
 		} catch (Exception e) {
 			System.out.println("Erro ao cadastrar insumo.");
