@@ -26,6 +26,9 @@ public class TelaInicial {
 			opcao =  Integer.parseInt(sc.nextLine());
 
 			switch(opcao) {
+			case 0: 
+				System.out.println("Saindo...");
+				break;
 			case 1 :
 				TelaEstoqueInsumo.opcoesCadastro();
 				break;
