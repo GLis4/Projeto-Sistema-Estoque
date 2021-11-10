@@ -1,16 +1,19 @@
 package atividade.estoque.tela;
 
+import java.util.List;
 import java.util.Scanner;
 
-import atividade.estoque.GerenciadorIngredientes;
+import atividade.estoque.GerenciadorEstoque;
+import atividade.estoque.Insumo;
+import atividade.estoque.util.UtilFormatacao;
 
 public class TelaInicial {
-	
+
 	static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
 		selecionarOpcao();
 	}
-	
+
 	static void selecionarOpcao() {
 		int opcao;
 		do {	
@@ -30,7 +33,7 @@ public class TelaInicial {
 				pesquisarEstoque();
 				break;
 			case 3 : 
-				System.out.println("Baixando Estoque...");
+				abaixarItem();
 				break;
 			case 4 : 
 				TelaProduto.selecionarOpcao();
@@ -44,16 +47,34 @@ public class TelaInicial {
 	}
 	static void pesquisarEstoque() {
 
-		System.out.println(" *Somente pesquisar por nome do produto* ");
+		System.out.println(" *Somente pesquisar por nome do ingrediente* ");
 		System.out.println(" Pesquisar por :  ");
-		String resultPesquisa = GerenciadorIngredientes.pesquisarIngredientes(sc.nextLine());
-		if(resultPesquisa.isBlank()) {
+		List<Insumo> listaFiltradaInsumos = GerenciadorEstoque.pesquisarIngredientes(sc.nextLine());
+		if(listaFiltradaInsumos.size() == 0) {
 			System.out.println("Não há nenhum item com esse nome");
 		}else {
-			System.out.println(resultPesquisa);
+
+			String insumosFormatadosParaApresentacao = UtilFormatacao.montarApresentacaoTextualLInsumo(listaFiltradaInsumos);
+			System.out.println(insumosFormatadosParaApresentacao);
+
 		}
+	}
 
+	static void abaixarItem() {
 
+		System.out.println("\tBaixa- Estoque");
+		if (GerenciadorEstoque.listIns.size() == 0) {
+			System.out.println("Não há nenhum item na lista.");
+			selecionarOpcao();
+
+		} else {
+			System.out.println(UtilFormatacao.montarApresentacaoTextualLInsumo(GerenciadorEstoque.listIns));
+			int indexAbaixarItem = Integer.parseInt(sc.nextLine()); 
+			System.out.println("Deseja abaixar no estoque o item...");
+			System.out.println("Quanto quer abaixar no estoque atual?");
+			int abaixaEstoqueA = Integer.parseInt(sc.nextLine());  
+			GerenciadorEstoque.baixaEstoque(indexAbaixarItem - 1, abaixaEstoqueA);
+		}
 	}
 
 }
