@@ -36,7 +36,7 @@ public class TelaInicial {
 				abaixarItem();
 				break;
 			case 4 : 
-				TelaProduto.selecionarOpcao();
+				TelaProduto.opocoesDeCadastroProd();
 				break;
 
 			default:
