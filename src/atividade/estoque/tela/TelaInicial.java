@@ -3,7 +3,7 @@ package atividade.estoque.tela;
 import java.util.List;
 import java.util.Scanner;
 
-import atividade.estoque.GerenciadorEstoque;
+import atividade.estoque.GerenciadorInsumo;
 import atividade.estoque.Insumo;
 import atividade.estoque.util.UtilFormatacao;
 
@@ -30,7 +30,7 @@ public class TelaInicial {
 				System.out.println("Saindo...");
 				break;
 			case 1 :
-				TelaEstoqueInsumo.opcoesCadastro();
+				TelaInsumo.opcoesCadastro();
 				break;
 			case 2:
 				pesquisarEstoque();
@@ -52,7 +52,7 @@ public class TelaInicial {
 
 		System.out.println(" *Somente pesquisar por nome do ingrediente* ");
 		System.out.println(" Pesquisar por :  ");
-		List<Insumo> listaFiltradaInsumos = GerenciadorEstoque.pesquisarIngredientes(sc.nextLine());
+		List<Insumo> listaFiltradaInsumos = GerenciadorInsumo.pesquisarIngredientes(sc.nextLine());
 		if(listaFiltradaInsumos.size() == 0) {
 			System.out.println("Não há nenhum item com esse nome");
 		}else {
@@ -66,17 +66,17 @@ public class TelaInicial {
 	static void abaixarItem() {
 
 		System.out.println("\tBaixa- Estoque");
-		if (GerenciadorEstoque.listIns.size() == 0) {
+		if (GerenciadorInsumo.listIns.size() == 0) {
 			System.out.println("Não há nenhum item na lista.");
 			selecionarOpcao();
 
 		} else {
-			System.out.println(UtilFormatacao.montarApresentacaoTextualLInsumo(GerenciadorEstoque.listIns));
+			System.out.println(UtilFormatacao.montarApresentacaoTextualLInsumo(GerenciadorInsumo.listIns));
 			int indexAbaixarItem = Integer.parseInt(sc.nextLine()); 
 			System.out.println("Deseja abaixar no estoque o item...");
 			System.out.println("Quanto quer abaixar no estoque atual?");
 			int abaixaEstoqueA = Integer.parseInt(sc.nextLine());  
-			GerenciadorEstoque.baixaEstoque(indexAbaixarItem - 1, abaixaEstoqueA);
+			GerenciadorInsumo.baixaEstoque(indexAbaixarItem - 1, abaixaEstoqueA);
 		}
 	}
 

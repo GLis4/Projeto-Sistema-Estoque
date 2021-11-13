@@ -9,8 +9,8 @@ public class Produto {
 	
 	
 	public String nomePro;
-	public int idPro;
-	public List<Insumo> ingPratos = new ArrayList<>();
+	public int codPro;
+	public  List<Insumo> ingProd = new ArrayList<>();
 	public double precoPro;
 		
 					

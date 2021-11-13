@@ -3,7 +3,7 @@ package atividade.estoque;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GerenciadorEstoque {
+public class GerenciadorInsumo {
 
 	public static List<Insumo> listIns = new ArrayList<>();
 	

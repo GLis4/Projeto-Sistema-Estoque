@@ -8,6 +8,7 @@ public class Util {
 		if (numeroASerVerificado >= valorMinimo && numeroASerVerificado <= valorMaximo ) {
 			estaDentroDosLimites = true;
 		}
+		
 		return estaDentroDosLimites;
 
 	}
@@ -22,7 +23,6 @@ public class Util {
 		case 3 :
 			return "Regular";
 		default:
-			//TODO como lançar uma exception???
 			return "Situação não cadastrada";
 		}
 

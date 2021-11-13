@@ -2,11 +2,11 @@ package atividade.estoque.tela;
 
 import java.util.Scanner;
 
-import atividade.estoque.GerenciadorEstoque;
+import atividade.estoque.GerenciadorInsumo;
 import atividade.estoque.Insumo;
 import atividade.estoque.util.Util;
 
-public class TelaEstoqueInsumo {
+public class TelaInsumo {
 
 	private static Scanner sc = new Scanner(System.in);
 
@@ -127,7 +127,7 @@ public class TelaEstoqueInsumo {
 			System.out.println("Situação do Estoque : " + devolverSit);
 			System.out.println("================================================");
 
-			GerenciadorEstoque.listIns.add(insumo);
+			GerenciadorInsumo.listIns.add(insumo);
 
 		} catch (Exception e) {
 			System.out.println("Erro ao cadastrar insumo.");
@@ -138,101 +138,106 @@ public class TelaEstoqueInsumo {
 	}
 
 	public static void editarInsumo() {
+		if (GerenciadorInsumo.listIns.size() == 0) {
+			System.out.println("Não há nenhum item na lista.");
+			opcoesCadastro();
 
-		consultarInsumo();
+		} else {
+			consultarInsumo();
 
-		try {
-			System.out.println("Deseja alterar o item : ");
-			int indexRem = Integer.parseInt(sc.nextLine());
+			try {
+				System.out.println("Deseja alterar o item : ");
+				int indexRem = Integer.parseInt(sc.nextLine());
 
-			System.out.println("Digite o número para alterar no cadastro do insumo: ");
-			System.out.println("===================================================");
-			System.out.println("1 - Código do Sistema");
-			System.out.println("2 - Nome");
-			System.out.println("3 - Categoria");
-			System.out.println("4 - Preço de Custo");
-			System.out.println("5 - Medida");
-			System.out.println("6 - Estoque Mínimo");
-			System.out.println("7 - Estoque Atual");
+				System.out.println("Digite o número para alterar no cadastro do insumo: ");
+				System.out.println("===================================================");
+				System.out.println("1 - Código do Sistema");
+				System.out.println("2 - Nome");
+				System.out.println("3 - Categoria");
+				System.out.println("4 - Preço de Custo");
+				System.out.println("5 - Medida");
+				System.out.println("6 - Estoque Mínimo");
+				System.out.println("7 - Estoque Atual");
 
-			int opcao = Integer.parseInt(sc.nextLine());
+				int opcao = Integer.parseInt(sc.nextLine());
 
-			switch (opcao) {
-			case 1:
-				System.out.println("Código do Sistema: ");
-				GerenciadorEstoque.listIns.get(indexRem).codSistema = Integer.parseInt(sc.nextLine());
-				break;
-			case 2:
-				System.out.println("Nome: ");
-				GerenciadorEstoque.listIns.get(indexRem).nome = sc.nextLine();
-				break;
-			case 3:
-				System.out.println("Categoria: ");
-				System.out.println("1- bebidas");
-				System.out.println("2- carnes");
-				System.out.println("3- condimentos");
-				System.out.println("4- embalagens");
-				System.out.println("5- frios");
-				System.out.println("6- leites e derivados");
-				System.out.println("7- liquidos");
-				System.out.println("8- massas");
-				System.out.println("9- verduras");
-				System.out.println("10- outros");
-				GerenciadorEstoque.listIns.get(indexRem).categoria = Byte.parseByte(sc.nextLine());
-				break;
-			case 4:
-				System.out.println("Preço de Custo: ");
-				GerenciadorEstoque.listIns.get(indexRem).pCusto = Double.parseDouble(sc.nextLine());
-				break;
-			case 5:
-				System.out.println("Medida: ");
-				System.out.println("1- UN");
-				System.out.println("2- KG");
-				System.out.println("3- LT");
-				GerenciadorEstoque.listIns.get(indexRem).medida = Byte.parseByte(sc.nextLine());
-				break;
-			case 6:
-				System.out.println("Estoque Mínimo: ");
-				GerenciadorEstoque.listIns.get(indexRem).estoqueM = Double.parseDouble(sc.nextLine());
-				break;
-			case 7:
-				System.out.println("Estoque Atual: ");
-				GerenciadorEstoque.listIns.get(indexRem).estoqueA = Double.parseDouble(sc.nextLine());
-				break;
+				switch (opcao) {
+				case 1:
+					System.out.println("Código do Sistema: ");
+					GerenciadorInsumo.listIns.get(indexRem).codSistema = Integer.parseInt(sc.nextLine());
+					break;
+				case 2:
+					System.out.println("Nome: ");
+					GerenciadorInsumo.listIns.get(indexRem).nome = sc.nextLine();
+					break;
+				case 3:
+					System.out.println("Categoria: ");
+					System.out.println("1- bebidas");
+					System.out.println("2- carnes");
+					System.out.println("3- condimentos");
+					System.out.println("4- embalagens");
+					System.out.println("5- frios");
+					System.out.println("6- leites e derivados");
+					System.out.println("7- liquidos");
+					System.out.println("8- massas");
+					System.out.println("9- verduras");
+					System.out.println("10- outros");
+					GerenciadorInsumo.listIns.get(indexRem).categoria = Byte.parseByte(sc.nextLine());
+					break;
+				case 4:
+					System.out.println("Preço de Custo: ");
+					GerenciadorInsumo.listIns.get(indexRem).pCusto = Double.parseDouble(sc.nextLine());
+					break;
+				case 5:
+					System.out.println("Medida: ");
+					System.out.println("1- UN");
+					System.out.println("2- KG");
+					System.out.println("3- LT");
+					GerenciadorInsumo.listIns.get(indexRem).medida = Byte.parseByte(sc.nextLine());
+					break;
+				case 6:
+					System.out.println("Estoque Mínimo: ");
+					GerenciadorInsumo.listIns.get(indexRem).estoqueM = Double.parseDouble(sc.nextLine());
+					break;
+				case 7:
+					System.out.println("Estoque Atual: ");
+					GerenciadorInsumo.listIns.get(indexRem).estoqueA = Double.parseDouble(sc.nextLine());
+					break;
 
-			default:
-				System.out.println("Opção invalida");
-				break;
+				default:
+					System.out.println("Opção invalida");
+					break;
+				}
+
+			} catch (Exception e) {
+
+				System.out.println("Erro ao editar");
+				editarInsumo();
 			}
-
-		} catch (Exception e) {
-
-			System.out.println("Erro ao editar");
-			editarInsumo();
 		}
 
 	}
 
 	public static void consultarInsumo() {
 
-		if (GerenciadorEstoque.listIns.size() == 0) {
+		if (GerenciadorInsumo.listIns.size() == 0) {
 			System.out.println("Não há nenhum item na lista.");
 			opcoesCadastro();
 
 		} else {
-			for (int i = 0; i < GerenciadorEstoque.listIns.size(); i++) {
+			for (int i = 0; i < GerenciadorInsumo.listIns.size(); i++) {
 
-				String devolverSit = Util.getSituacao(GerenciadorEstoque.listIns.get(i).sitEstoque);
-				
+				String devolverSit = Util.getSituacao(GerenciadorInsumo.listIns.get(i).sitEstoque);
+
 				System.out.println("\nInsumo cadastrado # " + i);
 				System.out.println("==============================================");
-				System.out.println("Nome                : " + GerenciadorEstoque.listIns.get(i).nome);
-				System.out.println("Código do Sistema   : " + GerenciadorEstoque.listIns.get(i).codSistema);
-				System.out.println("Categoria           : " + GerenciadorEstoque.listIns.get(i).categoria);
-				System.out.println("Preço de Custo      : " + GerenciadorEstoque.listIns.get(i).pCusto);
-				System.out.println("Medida              : " + GerenciadorEstoque.listIns.get(i).medida);
-				System.out.println("Estoque Mínimo      : " + GerenciadorEstoque.listIns.get(i).estoqueM);
-				System.out.println("Estoque Atual       : " + GerenciadorEstoque.listIns.get(i).estoqueA);
+				System.out.println("Nome                : " + GerenciadorInsumo.listIns.get(i).nome);
+				System.out.println("Código do Sistema   : " + GerenciadorInsumo.listIns.get(i).codSistema);
+				System.out.println("Categoria           : " + GerenciadorInsumo.listIns.get(i).categoria);
+				System.out.println("Preço de Custo      : " + GerenciadorInsumo.listIns.get(i).pCusto);
+				System.out.println("Medida              : " + GerenciadorInsumo.listIns.get(i).medida);
+				System.out.println("Estoque Mínimo      : " + GerenciadorInsumo.listIns.get(i).estoqueM);
+				System.out.println("Estoque Atual       : " + GerenciadorInsumo.listIns.get(i).estoqueA);
 				System.out.println("Situação do Estoque : " + devolverSit);
 				System.out.println("==============================================");
 			}
@@ -244,17 +249,17 @@ public class TelaEstoqueInsumo {
 		int opcao = Integer.parseInt(sc.nextLine());
 		switch (opcao) {
 		case 1:
-			GerenciadorEstoque.listIns.removeAll(GerenciadorEstoque.listIns);
+			GerenciadorInsumo.listIns.removeAll(GerenciadorInsumo.listIns);
 			break;
 		case 2:
 			consultarInsumo();
 			System.out.println("Deseja remover o item : ");
 			int indexRem = Integer.parseInt(sc.nextLine());
 			try {
-				if (indexRem < 0 || indexRem > GerenciadorEstoque.listIns.size() - 1) {
+				if (indexRem < 0 || indexRem > GerenciadorInsumo.listIns.size() - 1) {
 					System.out.println("Nao eh possivel excluir o item " + indexRem);
 				} else {
-					GerenciadorEstoque.listIns.remove(indexRem);
+					GerenciadorInsumo.listIns.remove(indexRem);
 				}
 			} catch (Exception e) {
 				System.out.println("Erro ao excluir item");
