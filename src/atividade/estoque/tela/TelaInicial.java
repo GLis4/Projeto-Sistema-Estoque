@@ -1,19 +1,30 @@
 package atividade.estoque.tela;
 
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Scanner;
 
 import atividade.estoque.GerenciadorInsumo;
 import atividade.estoque.Insumo;
+import atividade.estoque.db.ConectandoSQL;
 import atividade.estoque.util.UtilFormatacao;
 
 public class TelaInicial {
 
 	static Scanner sc = new Scanner(System.in);
-	public static void main(String[] args) {
+	static ConectandoSQL con;
+	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		inicializarConexaoBanco();
 		selecionarOpcao();
 	}
 
+	static void inicializarConexaoBanco() throws ClassNotFoundException, SQLException {
+		
+		 con = new ConectandoSQL("./estoque.db");
+		 
+		 
+	}
+	
 	static void selecionarOpcao() {
 		int opcao;
 		do {	

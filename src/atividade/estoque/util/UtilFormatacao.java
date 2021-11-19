@@ -8,7 +8,7 @@ public class UtilFormatacao {
 	public static String montarApresentacaoTextualInsumo(Insumo insumo) {
 		return "\nInsumo : " + insumo.nome + "\n" +
 				"==============================================\n"
-				+ "Código do Sistema   : " + insumo.codSistema + "\n" + "Categoria           : " + insumo.categoria
+				+ "Código do Sistema   : " + insumo.codInsumo + "\n" + "Categoria           : " + insumo.categoria
 				+ "\n" + "Preço de Custo      : " + insumo.pCusto + "\n" + "Medida              : " + insumo.medida
 				+ "\n" + "Estoque Mínimo      : " + insumo.estoqueM + "\n" + "Estoque Atual       : " + insumo.estoqueA
 				+ "\n" + "Situação do Estoque : " + insumo.sitEstoque + "\n"
@@ -22,7 +22,7 @@ public class UtilFormatacao {
 			index += 1;
 			itens += "#"+ index +"\nInsumo " + insumo.nome + "\n"
 					+ "=============================================="
-					+ "\n" +"Código do Sistema   : " + insumo.codSistema 
+					+ "\n" +"Código do Sistema   : " + insumo.codInsumo 
 					+ "\n" + "Categoria           : " + insumo.categoria
 					+ "\n" + "Preço de Custo      : " + insumo.pCusto
 					+ "\n" + "Medida              : " + insumo.medida

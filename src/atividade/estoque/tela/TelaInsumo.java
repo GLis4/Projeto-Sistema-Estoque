@@ -63,7 +63,7 @@ public class TelaInsumo {
 			System.out.println("Cadastrar novo insumo. Entre com os dados: ");
 			System.out.println("=====================================\n");
 			System.out.println("Código do insumo: ");
-			insumo.codSistema = Integer.parseInt(sc.nextLine());
+			insumo.codInsumo = Integer.parseInt(sc.nextLine());
 
 			System.out.println("Nome: ");
 			insumo.nome = sc.nextLine();
@@ -117,7 +117,7 @@ public class TelaInsumo {
 
 			System.out.println("\nINSUMO CADASTRADO COM SUCESSO!");
 			System.out.println("================================================");
-			System.out.println("Código do Sistema   : " + insumo.codSistema);
+			System.out.println("Código do Sistema   : " + insumo.codInsumo);
 			System.out.println("Nome                : " + insumo.nome);
 			System.out.println("Categoria           : " + insumo.categoria);
 			System.out.println("Preço de Custo      : " + insumo.pCusto);
@@ -164,7 +164,7 @@ public class TelaInsumo {
 				switch (opcao) {
 				case 1:
 					System.out.println("Código do Sistema: ");
-					GerenciadorInsumo.listIns.get(indexRem).codSistema = Integer.parseInt(sc.nextLine());
+					GerenciadorInsumo.listIns.get(indexRem).codInsumo = Integer.parseInt(sc.nextLine());
 					break;
 				case 2:
 					System.out.println("Nome: ");
@@ -232,7 +232,7 @@ public class TelaInsumo {
 				System.out.println("\nInsumo cadastrado # " + i);
 				System.out.println("==============================================");
 				System.out.println("Nome                : " + GerenciadorInsumo.listIns.get(i).nome);
-				System.out.println("Código do Sistema   : " + GerenciadorInsumo.listIns.get(i).codSistema);
+				System.out.println("Código do Sistema   : " + GerenciadorInsumo.listIns.get(i).codInsumo);
 				System.out.println("Categoria           : " + GerenciadorInsumo.listIns.get(i).categoria);
 				System.out.println("Preço de Custo      : " + GerenciadorInsumo.listIns.get(i).pCusto);
 				System.out.println("Medida              : " + GerenciadorInsumo.listIns.get(i).medida);

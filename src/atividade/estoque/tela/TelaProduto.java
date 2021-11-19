@@ -30,20 +30,15 @@ public class TelaProduto {
 				case 0: 
 					TelaInicial.selecionarOpcao();
 					break;
-
-
 				case 1:
 					cadastrarProduto();
 					break;
-
 				case 2:
 					alterarProduto();
 					break;
-
 				case 3:
 					consultarProduto();
 					break;
-
 				case 4: 
 					excluirProduto();
 					break;
@@ -57,6 +52,7 @@ public class TelaProduto {
 			}while(opcao !=0);
 
 		}catch(Exception e) {
+
 			System.out.println("Erro ao selecionar. Preencha com um número valido.");
 			System.out.println("");
 			opocoesDeCadastroProd();

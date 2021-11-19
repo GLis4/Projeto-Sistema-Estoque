@@ -2,7 +2,7 @@ package atividade.estoque;
 
 public class Insumo {
 	
-	public int codSistema;
+	public int codInsumo;
 	public String nome;
 	public byte categoria;
 	public double pCusto;
